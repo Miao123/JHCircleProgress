@@ -15,6 +15,7 @@
 		A1717E291BDA3BDE0031C2E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1717E271BDA3BDE0031C2E6 /* LaunchScreen.storyboard */; };
 		A1717E341BDA3BDE0031C2E6 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1717E331BDA3BDE0031C2E6 /* _____Tests.m */; };
 		A1717E3F1BDA3BDF0031C2E6 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1717E3E1BDA3BDF0031C2E6 /* _____UITests.m */; };
+		A1717E4E1BDA3C9D0031C2E6 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1717E4D1BDA3C9D0031C2E6 /* CircleView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		A1717E3A1BDA3BDF0031C2E6 /* 圆形进度条UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "圆形进度条UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1717E3E1BDA3BDF0031C2E6 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		A1717E401BDA3BDF0031C2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1717E4C1BDA3C9D0031C2E6 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
+		A1717E4D1BDA3C9D0031C2E6 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				A1717E1D1BDA3BDE0031C2E6 /* AppDelegate.m */,
 				A1717E1F1BDA3BDE0031C2E6 /* ViewController.h */,
 				A1717E201BDA3BDE0031C2E6 /* ViewController.m */,
+				A1717E4C1BDA3C9D0031C2E6 /* CircleView.h */,
+				A1717E4D1BDA3C9D0031C2E6 /* CircleView.m */,
 				A1717E221BDA3BDE0031C2E6 /* Main.storyboard */,
 				A1717E251BDA3BDE0031C2E6 /* Assets.xcassets */,
 				A1717E271BDA3BDE0031C2E6 /* LaunchScreen.storyboard */,
@@ -270,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1717E4E1BDA3C9D0031C2E6 /* CircleView.m in Sources */,
 				A1717E211BDA3BDE0031C2E6 /* ViewController.m in Sources */,
 				A1717E1E1BDA3BDE0031C2E6 /* AppDelegate.m in Sources */,
 				A1717E1B1BDA3BDE0031C2E6 /* main.m in Sources */,
