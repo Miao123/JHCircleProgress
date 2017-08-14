@@ -1,139 +1,119 @@
 //
-//  CircleView.m
-//  圆形进度条
+//  CIrcleView.m
+//  CIrcle
 //
-//  Created by andy on 15/10/23.
-//  Copyright © 2015年 andy. All rights reserved.
+//  Created by mac on 15/11/25.
+//  Copyright © 2015年 leiliang. All rights reserved.
 //
 
-#import "CircleView.h"
+#import "CIrcleView.h"
+#import "Header.h"
+#define CoverToRadian(angle)                (M_PI * (angle) / 180.0f)
 
-#define DefaultTrackLineWidth               3.0f           // 默认轨迹宽度
-#define DefaultProgressLineWidth            5.0f           // 默认进度宽度
+@interface CIrcleView ()
 
-@interface CircleView ()
-
-// 轨迹layer
-@property (nonatomic, strong) CAShapeLayer      *trackLayer;
-
-// 进度条layer
-@property (nonatomic, strong) CAShapeLayer      *progressLayer;
-
-// 圆形路径
-@property (nonatomic, strong) UIBezierPath      *circlePath;
-
-// 左半边渐变颜色
-@property (nonatomic, strong) CAGradientLayer   *gradientLayer;
-
+@property (nonatomic, assign) CGFloat radius;
 
 @end
 
-@implementation CircleView
-- (instancetype)initWithFrame:(CGRect)frame{
-    
+@implementation CIrcleView
+
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupDefaultValue];
-        [self drawDefaultUI];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
 
-- (void)setupDefaultValue {
-    _progress           = 0;
-    _trackLineWidth     = DefaultTrackLineWidth;
-    _progressLineWidth  = DefaultProgressLineWidth;
-    _trackColor         = [[UIColor greenColor] colorWithAlphaComponent:0.25];
-    _startAngle         = CoverToRadian(-210);
-    _endAngle           = CoverToRadian(30);
-    _colockwise         = YES;
-}
-
-
-- (void)drawDefaultUI {
-    
-    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    // 半径： 取 self.frame的宽高最小值进行计算
-    CGFloat radius = MIN(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) / 2  - _progressLineWidth / 2 - _trackLineWidth / 2;
-    _circlePath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:_startAngle endAngle:_endAngle clockwise:_colockwise];
-    
-    _trackLayer             = [CAShapeLayer layer];
-    _trackLayer.frame       = self.bounds;
-    _trackLayer.path        = _circlePath.CGPath;
-    _trackLayer.lineWidth   = _trackLineWidth;
-    _trackLayer.strokeColor = _trackColor.CGColor;
-    _trackLayer.lineCap     = kCALineCapRound;
-    _trackLayer.fillColor   = [UIColor clearColor].CGColor;
-    [self.layer addSublayer:_trackLayer];
-    
-    _progressLayer              = [CAShapeLayer layer];
-    _progressLayer.path         = _circlePath.CGPath;
-    _progressLayer.frame        = self.bounds;
-    _progressLayer.lineWidth    = _progressLineWidth;
-    _progressLayer.strokeColor  = [UIColor purpleColor].CGColor;
-    _progressLayer.fillColor    = [UIColor clearColor].CGColor;
-    _progressLayer.lineCap      = kCALineCapRound;
-    _progressLayer.strokeEnd    = _progress / 100;
-    
-    _gradientLayer              = [CAGradientLayer layer];
-    _gradientLayer.colors       = @[(__bridge id)[UIColor yellowColor].CGColor,(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blueColor].CGColor,(__bridge id)[UIColor purpleColor].CGColor];
-    _gradientLayer.locations    = @[@(0.0f),@(0.3f),@(0.7f),@(1.0f)];
-    _gradientLayer.startPoint   = CGPointMake(1.0f, 0.0f);
-    _gradientLayer.endPoint     = CGPointMake(1.0f, 1.0f);
-    _gradientLayer.frame        = self.bounds;
-    [_gradientLayer setMask:_progressLayer];
-    [self.layer addSublayer:_gradientLayer];
-    
-}
-
-- (void)updateCirclePath {
-    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    // 半径： 取 self.frame的宽高最小值进行计算
-    CGFloat radius = MIN(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) / 2  - _progressLineWidth / 2 - _trackLineWidth / 2;
-    //    startAngle,endAngle 是以M_PI为单位，不是以度数，，，
-    _circlePath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:M_PI *0.9 endAngle:M_PI *0.1 clockwise:_colockwise];
-    _trackLayer.path = _circlePath.CGPath;
-    _progressLayer.path = _circlePath.CGPath;
-}
-
--(void)setProgressLineWidth:(CGFloat)progressLineWidth {
-    _progressLayer.lineWidth = progressLineWidth;
-}
-
-- (void)setTrackLineWidth:(CGFloat)trackLineWidth {
-    _trackLayer.lineWidth = trackLineWidth;
-}
-
-- (void)setTrackColor:(UIColor *)trackColor {
-    _trackLayer.strokeColor = trackColor.CGColor;
-}
-
--(void)setStartAngle:(CGFloat)startAngle {
-    _startAngle = startAngle;
-    [self updateCirclePath];
-}
-
-- (void)setEndAngle:(CGFloat)endAngle {
-    _endAngle = endAngle;
-    [self updateCirclePath];
-}
-
-- (void)setProgress:(CGFloat)progress {
-    _progress = MAX(0, MIN(progress, 100));
-    __block CAShapeLayer *progressLayer = self.progressLayer;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        progressLayer.strokeEnd = _progress / 10;// 动画时间
-        //        NSLog(@"-----%f",progressLayer.strokeEnd);
-    });
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
+    // 画半圆
+    CAShapeLayer *circlelayer = [CAShapeLayer layer];
+    circlelayer.lineWidth = 2.5;
+    circlelayer.lineCap = kCALineCapRound;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
+        circlelayer.strokeColor = [UIColor colorWithWhite:1.000 alpha:0.320].CGColor;
+    }else{
+        circlelayer.strokeColor = RGB_COLOR(220, 220, 220).CGColor;
+    }
+    circlelayer.fillColor = [UIColor clearColor].CGColor;
+    
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddArc(path, &CGAffineTransformIdentity, CGRectGetWidth(self.frame) / 2, CGRectGetHeight(self.frame) / 2, self.radius, CoverToRadian(-200), CoverToRadian(20), NO);
+    
+    circlelayer.path = path;
+    [self.layer addSublayer:circlelayer];
+    
+    // 动态brown circle
+    
+    CAShapeLayer *brownlayer = [CAShapeLayer layer];
+    brownlayer.lineWidth = 2.5f;
+    brownlayer.lineCap = kCALineCapRound;
+    //    判断是iPhone还是iPad
+    NSString *fileName = nil;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
+        fileName = @"GS_TravelRequestMobilizationFlow_iPhone";
+        brownlayer.strokeColor = [UIColor whiteColor].CGColor;
+    }else{
+        brownlayer.strokeColor = RGB_COLOR(76, 183, 188).CGColor;
+    }
+    
+    brownlayer.fillColor = [UIColor clearColor].CGColor;
+    
+    CGMutablePathRef brownPath = CGPathCreateMutable();
+    CGPathAddArc(brownPath, &CGAffineTransformIdentity, CGRectGetWidth(self.frame) / 2, CGRectGetHeight(self.frame) / 2, self.radius, CoverToRadian(-200), CoverToRadian(20), NO);
+    
+    brownlayer.path = path;
+    [self.layer addSublayer:brownlayer];
+    
+    brownlayer.strokeEnd = self.sliderNumber;
+    
+    {
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        animation.duration = 1.0f;
+        animation.fromValue = @0;
+        animation.toValue = @(self.sliderNumber);
+        animation.autoreverses = NO;
+        animation.fillMode = kCAFillModeForwards;
+        [brownlayer addAnimation:animation forKey:@"strokeEndAnimation"];
+    }
+    
+    // 小绿点
+    UIImageView *pointView = [[UIImageView alloc] init];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
+        fileName = @"GS_TravelRequestMobilizationFlow_iPhone";
+        pointView.frame = CGRectMake(0, 0, 16, 16);
+        pointView.image = [UIImage imageNamed:@"小亮点"];
+    }else{
+        pointView.frame = CGRectMake(0, 0, 6 , 6);
+        pointView.image = [UIImage imageNamed:@"iPad小白点"];
+    }
+    pointView.backgroundColor = [UIColor clearColor];
+    pointView.clipsToBounds = YES;
+    //    [pointView.layer setCornerRadius:8];//设置矩形四个圆角半径
+    
+    //    pointView.layer.cornerRadius = 4;
+    
+    CAKeyframeAnimation *frameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    frameAnimation.calculationMode = kCAAnimationPaced;
+    frameAnimation.fillMode = kCAFillModeForwards;
+    frameAnimation.removedOnCompletion = NO;
+    frameAnimation.duration = 1.0f;
+    //    frameAnimation.speed = 2;
+    
+    CGMutablePathRef pointPath = CGPathCreateMutable();
+    CGPathAddArc(pointPath, &CGAffineTransformIdentity, CGRectGetWidth(self.frame) / 2, CGRectGetHeight(self.frame) / 2, self.radius,CoverToRadian(-201), CoverToRadian(self.circleRad), NO);
+    
+    frameAnimation.path = pointPath;
+    CGPathRelease(pointPath);
+    
+    [pointView.layer addAnimation:frameAnimation forKey:@"curve"];
+    [self addSubview:pointView];
 }
-*/
+
+- (CGFloat)radius {
+    return  CGRectGetWidth(self.frame) / 2;
+}
 
 @end

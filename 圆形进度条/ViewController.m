@@ -7,14 +7,16 @@
 //
 
 #import "ViewController.h"
-#import "CircleView.h"
+#import "CIrcleView.h"
+#import "UIView+NJ.h"
+#import "Header.h"
+#import "progressView.h"
+
 @interface ViewController ()
-// 进度增长步长
-@property (nonatomic, assign) CGFloat step;
-
-@property (nonatomic, strong) CircleView *progressView;
-
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) CIrcleView *circleView;
+@property (nonatomic, assign) NSInteger score;
+@property (nonatomic, assign) CGFloat number;
+@property (nonatomic, strong) progressView *cirProgressView;
 
 @end
 
@@ -24,27 +26,36 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    // 需要自定制的 请查看CircleView.h所提供的属性，也可修改.m文件
-    _progressView = [[CircleView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-    _progressView.center = self.view.center;
-    _progressView.startAngle = - M_PI * 2;
-    _progressView.endAngle   = 0;
-    [self.view addSubview:_progressView];
+    self.view.backgroundColor = RGB_COLOR(128, 128, 128);
     
     
-    self.step = 1.0 / 30;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:self.step target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
-}
-
-- (void)updateProgress {
-    CGFloat progress = self.progressView.progress;
-    if (progress > 100) {
-        [_timer invalidate];
-        _timer = nil;
-        return;
+    
+    UIImageView *dashboardImageView = [[UIImageView alloc] init];
+    dashboardImageView.frame = CGRectMake(0, 0, 215 * DISTENCEW , 136 * DISTENCEW );
+    dashboardImageView.image = [UIImage imageNamed:@"仪表盘"];
+    dashboardImageView.centerY = 150;
+    dashboardImageView.centerX = screenWidth / 2;
+    [self.view addSubview:dashboardImageView];
+    
+    
+    _score = 100;
+    CIrcleView *circleView = [[CIrcleView alloc] initWithFrame:CGRectMake(0 , 0 , 190 * DISTENCEW, 190 * DISTENCEW)];
+    circleView.centerX = screenWidth / 2;
+    circleView.centerY = dashboardImageView.centerY + 30 * DISTENCEW;
+    if (_score <= 60) {
+        _number = _score / 1.5;
     }
-    progress += 0.3;
-    self.progressView.progress = progress;
+    if (_score > 60 && _score <= 80 ) {
+        _number = 60 / 1.5 + _score - 60;
+    }
+    if (_score > 80 && _score <= 100 ) {
+        _number =  80 * 3 / 4  + (_score - 80) * 2;
+    }
+    
+    circleView.sliderNumber = _number / 100;
+    circleView.circleRad = -(200 - _number * 2.2);
+    self.circleView = circleView;
+    [self.view addSubview:circleView];
 }
 
 - (void)didReceiveMemoryWarning {

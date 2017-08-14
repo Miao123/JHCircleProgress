@@ -15,7 +15,12 @@
 		A1717E291BDA3BDE0031C2E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1717E271BDA3BDE0031C2E6 /* LaunchScreen.storyboard */; };
 		A1717E341BDA3BDE0031C2E6 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1717E331BDA3BDE0031C2E6 /* _____Tests.m */; };
 		A1717E3F1BDA3BDF0031C2E6 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1717E3E1BDA3BDF0031C2E6 /* _____UITests.m */; };
-		A1717E4E1BDA3C9D0031C2E6 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1717E4D1BDA3C9D0031C2E6 /* CircleView.m */; settings = {ASSET_TAGS = (); }; };
+		DD7FD1A31F4184BD00EEB4F1 /* UIBarButtonItem+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7FD19C1F4184BD00EEB4F1 /* UIBarButtonItem+NJ.m */; };
+		DD7FD1A41F4184BD00EEB4F1 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7FD19E1F4184BD00EEB4F1 /* UIColor+Hex.m */; };
+		DD7FD1A51F4184BD00EEB4F1 /* UIView+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7FD1A01F4184BD00EEB4F1 /* UIView+NJ.m */; };
+		DD7FD1A61F4184BD00EEB4F1 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7FD1A21F4184BD00EEB4F1 /* UIViewExt.m */; };
+		DD7FD1AC1F4184CF00EEB4F1 /* CIrcleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7FD1A81F4184CF00EEB4F1 /* CIrcleView.m */; };
+		DD7FD1AD1F4184CF00EEB4F1 /* progressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7FD1AB1F4184CF00EEB4F1 /* progressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +57,19 @@
 		A1717E3A1BDA3BDF0031C2E6 /* 圆形进度条UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "圆形进度条UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1717E3E1BDA3BDF0031C2E6 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		A1717E401BDA3BDF0031C2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1717E4C1BDA3C9D0031C2E6 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
-		A1717E4D1BDA3C9D0031C2E6 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		DD7FD19B1F4184BD00EEB4F1 /* UIBarButtonItem+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+NJ.h"; sourceTree = "<group>"; };
+		DD7FD19C1F4184BD00EEB4F1 /* UIBarButtonItem+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+NJ.m"; sourceTree = "<group>"; };
+		DD7FD19D1F4184BD00EEB4F1 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		DD7FD19E1F4184BD00EEB4F1 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		DD7FD19F1F4184BD00EEB4F1 /* UIView+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NJ.h"; sourceTree = "<group>"; };
+		DD7FD1A01F4184BD00EEB4F1 /* UIView+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NJ.m"; sourceTree = "<group>"; };
+		DD7FD1A11F4184BD00EEB4F1 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		DD7FD1A21F4184BD00EEB4F1 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		DD7FD1A71F4184CF00EEB4F1 /* CIrcleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIrcleView.h; sourceTree = "<group>"; };
+		DD7FD1A81F4184CF00EEB4F1 /* CIrcleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIrcleView.m; sourceTree = "<group>"; };
+		DD7FD1A91F4184CF00EEB4F1 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		DD7FD1AA1F4184CF00EEB4F1 /* progressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = progressView.h; sourceTree = "<group>"; };
+		DD7FD1AB1F4184CF00EEB4F1 /* progressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = progressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +120,16 @@
 		A1717E181BDA3BDE0031C2E6 /* 圆形进度条 */ = {
 			isa = PBXGroup;
 			children = (
+				DD7FD19A1F4184BD00EEB4F1 /* Category */,
 				A1717E1C1BDA3BDE0031C2E6 /* AppDelegate.h */,
 				A1717E1D1BDA3BDE0031C2E6 /* AppDelegate.m */,
 				A1717E1F1BDA3BDE0031C2E6 /* ViewController.h */,
 				A1717E201BDA3BDE0031C2E6 /* ViewController.m */,
-				A1717E4C1BDA3C9D0031C2E6 /* CircleView.h */,
-				A1717E4D1BDA3C9D0031C2E6 /* CircleView.m */,
+				DD7FD1A71F4184CF00EEB4F1 /* CIrcleView.h */,
+				DD7FD1A81F4184CF00EEB4F1 /* CIrcleView.m */,
+				DD7FD1A91F4184CF00EEB4F1 /* Header.h */,
+				DD7FD1AA1F4184CF00EEB4F1 /* progressView.h */,
+				DD7FD1AB1F4184CF00EEB4F1 /* progressView.m */,
 				A1717E221BDA3BDE0031C2E6 /* Main.storyboard */,
 				A1717E251BDA3BDE0031C2E6 /* Assets.xcassets */,
 				A1717E271BDA3BDE0031C2E6 /* LaunchScreen.storyboard */,
@@ -143,6 +163,21 @@
 				A1717E401BDA3BDF0031C2E6 /* Info.plist */,
 			);
 			path = "圆形进度条UITests";
+			sourceTree = "<group>";
+		};
+		DD7FD19A1F4184BD00EEB4F1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				DD7FD19B1F4184BD00EEB4F1 /* UIBarButtonItem+NJ.h */,
+				DD7FD19C1F4184BD00EEB4F1 /* UIBarButtonItem+NJ.m */,
+				DD7FD19D1F4184BD00EEB4F1 /* UIColor+Hex.h */,
+				DD7FD19E1F4184BD00EEB4F1 /* UIColor+Hex.m */,
+				DD7FD19F1F4184BD00EEB4F1 /* UIView+NJ.h */,
+				DD7FD1A01F4184BD00EEB4F1 /* UIView+NJ.m */,
+				DD7FD1A11F4184BD00EEB4F1 /* UIViewExt.h */,
+				DD7FD1A21F4184BD00EEB4F1 /* UIViewExt.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +247,7 @@
 				TargetAttributes = {
 					A1717E151BDA3BDE0031C2E6 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = B7UQ7WHB5T;
 					};
 					A1717E2E1BDA3BDE0031C2E6 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -275,9 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1717E4E1BDA3C9D0031C2E6 /* CircleView.m in Sources */,
+				DD7FD1A61F4184BD00EEB4F1 /* UIViewExt.m in Sources */,
+				DD7FD1AD1F4184CF00EEB4F1 /* progressView.m in Sources */,
+				DD7FD1A31F4184BD00EEB4F1 /* UIBarButtonItem+NJ.m in Sources */,
+				DD7FD1A41F4184BD00EEB4F1 /* UIColor+Hex.m in Sources */,
 				A1717E211BDA3BDE0031C2E6 /* ViewController.m in Sources */,
+				DD7FD1AC1F4184CF00EEB4F1 /* CIrcleView.m in Sources */,
 				A1717E1E1BDA3BDE0031C2E6 /* AppDelegate.m in Sources */,
+				DD7FD1A51F4184BD00EEB4F1 /* UIView+NJ.m in Sources */,
 				A1717E1B1BDA3BDE0031C2E6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B7UQ7WHB5T;
 				INFOPLIST_FILE = "圆形进度条/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gayou.com.-----";
@@ -430,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B7UQ7WHB5T;
 				INFOPLIST_FILE = "圆形进度条/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gayou.com.-----";
@@ -504,6 +547,7 @@
 				A1717E451BDA3BDF0031C2E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1717E461BDA3BDF0031C2E6 /* Build configuration list for PBXNativeTarget "圆形进度条Tests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +556,7 @@
 				A1717E481BDA3BDF0031C2E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1717E491BDA3BDF0031C2E6 /* Build configuration list for PBXNativeTarget "圆形进度条UITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +565,7 @@
 				A1717E4B1BDA3BDF0031C2E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
